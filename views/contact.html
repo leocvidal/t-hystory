@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CBA Demo</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <ul class="topnav">
+    <li><a href="index.html">HLS</a></li>
+    <li><a href="cps.html">CPS</a></li>
+    <li><a class="active" href="#contact">Contact</a></li>
+    <li class="right"><a href="about.html">About</a></li>
+  </ul>
+
+  <div style="padding:0 16px;">
+    <h2>CBA Demo App  <img src="http://d39fx46bzv2q62.cloudfront.net/wp-content/uploads/2012/10/commbank_logo1.jpg" alt="" width="62" height="42"> </h2>
+
+  </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <div class="container">
+
+        <form class="well form-horizontal" action="smsme()" method="post"  id="contact_form">
+    <fieldset>
+
+    <!-- Form Name -->
+    <legend>Contact us about this demo!</legend>
+
+    <!-- Text input-->
+
+    <div class="form-group">
+      <label class="col-md-4 control-label">First Name</label>
+      <div class="col-md-4 inputGroupContainer">
+      <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input  name="first_name" placeholder="First Name" class="form-control"  type="text">
+        </div>
+      </div>
+    </div>
+
+    <!-- Text input-->
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" >Last Name</label>
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+      <input name="last_name" placeholder="Last Name" class="form-control"  type="text">
+        </div>
+      </div>
+    </div>
+
+    <!-- Text input-->
+           <div class="form-group">
+      <label class="col-md-4 control-label">E-Mail</label>
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+      <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
+        </div>
+      </div>
+    </div>
+
+    <!-- Text area -->
+
+    <div class="form-group">
+      <label class="col-md-4 control-label">Comments or Suggestions</label>
+        <div class="col-md-4 inputGroupContainer">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+            	<textarea class="form-control" name="comment" placeholder="Comments or Suggestions"></textarea>
+      </div>
+      </div>
+    </div>
+
+
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label"></label>
+      <div class="col-md-4">
+        <button type="submit" class="btn btn-warning" onclick="smsme()">Send <span class="glyphicon glyphicon-send"></span></button>
+        <button type="submit" formmethod="get" formaction="JavaScript:sendsms()"  class="btn btn-warning" >Send <span class="glyphicon glyphicon-send"></span></button>
+      </div>
+    </div>
+
+
+    </fieldset>
+    </form>
+    </div>
+        </div><!-- /.container -->
+
+        <script>
+        function smsme() {
+            document.getElementById("demo").innerHTML = "Hello World";
+            var firstname = document.getElementsByName("first_name")[0].value;
+            var lastname = document.getElementsByName("last_name")[0].value;
+            alert (firstname + lastname);
+      var url = "https://smsleo.mybluemix.net/sms?texto=%22Nome: " + firstname + "%20" + lastname + " EMail:%22";
+          //  $.get("https://smsleo.mybluemix.net/sms?texto=%22Is%20Fila%22");
+      $.get(url);
+        }
+        </script>
+
+</body>
+
+</html>
