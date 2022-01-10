@@ -255,7 +255,7 @@ app.post("/api/account", function (request, response) {
 // load local VCAP configuration  and service credentials
 var vcapLocal;
 try {
-  vcapLocal = require('./vcap-local.json');
+  vcapLocal = require('./config/vcap-local.json');
   console.log("Loaded local VCAP", vcapLocal);
 } catch (e) { }
 
